@@ -1,567 +1,678 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سيف | بورتفوليو مهندس ومصمم</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-<style>
-/* المتغيرات */
-:root {
-  --primary-dark: #011B2E;
-  --primary-blue: #002b44;
-  --accent-blue: #00B3CB;
-  --accent-light: #4fd8eb;
-  --text-primary: #ffffff;
-  --text-secondary: #c8e6ff;
-  --shadow-glow: 0 0 20px rgba(0, 179, 203, 0.7);
-  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* إعدادات عامة */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Tajawal', sans-serif;
-  margin: 0;
-  background: var(--primary-dark);
-  color: var(--text-primary);
-  overflow-x: hidden;
-  line-height: 1.6;
-}
-
-/* HEADER ثابت */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(1, 27, 46, 0.9);
-  backdrop-filter: blur(15px);
-  text-align: center;
-  padding: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid var(--accent-blue);
-}
-
-.header h1 {
-  font-size: 2.5rem;
-  margin: 0;
-  background: linear-gradient(45deg, var(--accent-blue), var(--accent-light));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 10px rgba(0, 179, 203, 0.3);
-}
-
-.header p {
-  font-size: 1.1rem;
-  margin: 8px 0 20px;
-  color: var(--text-secondary);
-}
-
-.header nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 0;
-  margin: 0;
-}
-
-.header nav ul li a {
-  text-decoration: none;
-  color: var(--accent-light);
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 20px;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid transparent;
-}
-
-.header nav ul li a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.header nav ul li a:hover::before {
-  left: 100%;
-}
-
-.header nav ul li a:hover {
-  color: var(--text-primary);
-  background: rgba(0, 179, 203, 0.2);
-  box-shadow: 0 0 15px rgba(0, 179, 203, 0.5);
-  transform: translateY(-3px);
-  border: 1px solid var(--accent-blue);
-}
-
-/* HERO */
-.hero-section {
-  text-align: center;
-  padding: 120px 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 30% 50%, rgba(0, 179, 203, 0.2), transparent 70%);
-  z-index: -1;
-}
-
-.hero-section h2 {
-  font-size: 3rem;
-  margin-bottom: 25px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(45deg, var(--accent-blue), var(--accent-light));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: textGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes textGlow {
-  0% {
-    text-shadow: 0 0 10px rgba(0, 179, 203, 0.5);
-  }
-  100% {
-    text-shadow: 0 0 20px rgba(0, 179, 203, 0.8), 0 0 30px rgba(79, 216, 235, 0.6);
-  }
-}
-
-.hero-section p {
-  font-size: 1.3rem;
-  margin-bottom: 40px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--text-secondary);
-}
-
-.hero-section .cta-btn {
-  padding: 15px 40px;
-  background: linear-gradient(45deg, var(--primary-blue), var(--accent-blue));
-  border-radius: 30px;
-  color: #fff;
-  font-weight: 700;
-  text-decoration: none;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--accent-blue);
-  z-index: 1;
-}
-
-.hero-section .cta-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, var(--accent-blue), var(--primary-blue));
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.hero-section .cta-btn:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), var(--shadow-glow);
-}
-
-.hero-section .cta-btn:hover::before {
-  opacity: 1;
-}
-
-/* SECTIONS */
-.skills-section {
-  padding: 80px 20px;
-  text-align: center;
-  position: relative;
-  background: var(--primary-dark);
-}
-
-.skills-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: var(--accent-light);
-  text-shadow: 1px 1px 4px #000;
-  position: relative;
-  display: inline-block;
-}
-
-.skills-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 30px;
-    justify-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.skills-grid:hover .skill-item:not(:hover) {
-    opacity: 0.7;
-    transform: scale(0.95);
-    transition: all 0.3s ease;
-}
-
-.skill-item:hover {
-    transform: translateY(-15px) scale(1.05) !important;
-    opacity: 1 !important;
-    z-index: 10;
-}
-.empty-item {
-    visibility: hidden;
-    pointer-events: none;
-}
-
-/* Skill Item */
-.skill-item {
-  background: rgba(0, 179, 203, 0.1);
-  border-radius: 25px;
-  padding: 25px 20px;
-  width: 180px;
-  transition: var(--transition);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--accent-blue);
-  backdrop-filter: blur(5px);
-}
-
-.skill-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 179, 203, 0.1), rgba(1, 27, 46, 0.1));
-  z-index: -1;
-}
-
-.skill-item:hover {
-  transform: translateY(-15px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), var(--shadow-glow);
-  border: 1px solid var(--accent-light);
-}
-
-/* الأيقونات طائرة */
-.skill-item .icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 20px;
-  transition: var(--transition);
-  position: relative;
-}
-
-.skill-item:hover .icon {
-  transform: translateY(-10px) rotate(-5deg);
-}
-
-.skill-item p {
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 5px;
-}
-
-.skill-item span {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-
-/* Dark background sections */
-.dark-bg {
-  background: var(--primary-dark);
-  padding: 60px 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.dark-bg::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(0, 179, 203, 0.1) 0%, transparent 70%);
-  z-index: -1;
-}
-
-/* Portfolio Grid */
-.portfolio-grid .skill-item {
-  background: rgba(0, 179, 203, 0.1);
-}
-
-.portfolio-grid .skill-item:hover {
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 179, 203, 0.7);
-}
-
-.portfolio-grid .skill-item:hover .icon {
-  filter: drop-shadow(0 0 10px rgba(0, 179, 203, 0.7));
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 40px 20px;
-  background: rgba(1, 27, 46, 0.9);
-  backdrop-filter: blur(10px);
-  color: var(--text-secondary);
-  border-top: 1px solid var(--accent-blue);
-  margin-top: 60px;
-}
-
-.footer .social-links {
-  margin-top: 20px;
-}
-
-.footer .social-links a {
-  margin: 0 12px;
-  transition: var(--transition);
-  display: inline-block;
-}
-
-.footer .social-links a:hover {
-  transform: translateY(-5px) scale(1.2);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 2rem;
-  }
-  
-  .header nav ul {
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-  
-  .hero-section h2 {
-    font-size: 2.2rem;
-  }
-  
-  .hero-section p {
-    font-size: 1.1rem;
-  }
-  
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-  }
-  
-  .skill-item {
-    width: 160px;
-    padding: 20px 15px;
-  }
-}
-
-/* روابط داخلية hover */
-a {
-  transition: var(--transition);
-  color: var(--accent-light);
-}
-
-a:hover {
-  color: var(--text-primary);
-}
-</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سيف - بورتفوليو</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
 
-<header class="header sticky">
-    <h1>سيف</h1>
-    <p>مهندس ومصمم شغوف</p>
-    <nav>
-        <ul>
-            <li><a href="#software">البرامج</a></li>
-            <li><a href="#programming">لغات البرمجة</a></li>
-            <li><a href="#portfolio">أعمالي</a></li>
-        </ul>
-    </nav>
-</header>
+<body class="dark:bg-gradient-to-b dark:from-black dark:via-gray-900 dark:to-black min-h-screen flex flex-col text-blue-400 font-sans transition-colors duration-300">
 
-<section class="hero-section">
-    <h2>مرحباً بك في بورتفوليـو سيف</h2>
-    <p>اكتشف مهاراتي وأعمالي في التصميم والبرمجة والتدريب</p>
-    <a href="#portfolio" class="cta-btn">شاهد أعمالي</a>
-</section>
+    <header class="flex justify-between items-center p-6 bg-black/50 backdrop-blur-md">
+        <nav class="flex items-center space-x-6">
+          <a href="#home" class="nav-link">الرئيسية</a>
+          <a href="#software" class="nav-link">البرامج</a>
+          <a href="#works" class="nav-link">أعمالي</a>
+          <button id="programmingBtn" class="nav-link">لغات البرمجة</button>
+          <button id="contactBtn" class="nav-link">راسلني</button>
+        </nav>
+      </header>
 
-<section id="software" class="skills-section">
-    <h2>البرامج</h2>
-    <div class="skills-grid">
-        <div class="skill-item">
-            <div class="icon icon-photoshop"><img src="img/icons8-adobe-photoshop-100.png" alt="Photoshop"></div>
-            <p>Photoshop<br><span>(محترف)</span></p>
+  <main class="flex-grow container mx-auto px-4 py-12">
+
+    <section id="home" class="text-center mb-24" data-aos="zoom-in">
+      <h1 class="text-6xl font-bold mb-6 glow-text">
+        سيف
+      </h1>
+      <div class="animated-orb"></div>
+
+      <h2 class="text-2xl text-gray-300 my-4">مهندس ومصمم شغوف</h2>
+
+      <div id="typedText" class="text-2xl text-gray-300 my-8 h-16"></div>
+
+      <div class="max-w-3xl mx-auto text-lg text-gray-400">
+        <p class="mb-4">
+          مهندس ومصمم شغوف بالتكنولوجيا والإبداع، أتمتع بخبرة في التصميم الجرافيكي والبرمجة والتدريب.
+          أسعى دائمًا لتقديم حلول مبتكرة تجمع بين الجمالية والوظيفية.
+        </p>
+        <p class="text-blue-500 font-semibold">
+          🎨 أحب التصميم والإبداع البصري
+        </p>
+      </div>
+
+      <div class="mt-12 flex justify-center gap-6">
+        <button id="contactBtnMain" class="contact-btn">
+          <i class="fas fa-envelope mr-2"></i><span>راسلني</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- START Software Section -->
+    <section id="software" class="py-20 bg-black/20" data-aos="fade-up" aria-labelledby="software-heading">
+      <div class="container mx-auto px-4">
+        <header class="text-center mb-16">
+          <h2 id="software-heading" class="text-4xl font-bold text-blue-400 mb-4">البرامج</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">مجموعة من البرامج التي أتقنها في مجال التصميم والجرافيك</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <!-- Software 1 -->
+          <article class="software-card group bg-gray-900 rounded-2xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-blue-400/20">
+            <div class="flex items-start mb-6">
+              <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+                <i class="fas fa-palette text-2xl text-blue-400"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span class="text-gray-500 text-sm">محترف</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-3">Photoshop</h3>
+            <p class="text-gray-400 mb-5 leading-relaxed">
+              برنامج التصميم والتحرير الأكثر شهرة في العالم
+            </p>
+
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-4">
+              <div class="bg-blue-500 h-2.5 rounded-full" style="width: 95%"></div>
+            </div>
+          </article>
+
+          <!-- Software 2 -->
+          <article class="software-card group bg-gray-900 rounded-2xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-blue-400/20">
+            <div class="flex items-start mb-6">
+              <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+                <i class="fas fa-pen-nib text-2xl text-blue-400"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span class="text-gray-500 text-sm">محترف</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-3">Illustrator</h3>
+            <p class="text-gray-400 mb-5 leading-relaxed">
+              برنامج الرسم والتصميم المتجهي الاحترافي
+            </p>
+
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-4">
+              <div class="bg-blue-500 h-2.5 rounded-full" style="width: 90%"></div>
+            </div>
+          </article>
+
+          <!-- Software 3 -->
+          <article class="software-card group bg-gray-900 rounded-2xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-blue-400/20">
+            <div class="flex items-start mb-6">
+              <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+                <i class="fab fa-figma text-2xl text-blue-400"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                  <span class="text-gray-500 text-sm">جيد</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-3">Figma</h3>
+            <p class="text-gray-400 mb-5 leading-relaxed">
+              منصة تصميم واجهات المستخدم والتعاون
+            </p>
+
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-4">
+              <div class="bg-blue-500 h-2.5 rounded-full" style="width: 80%"></div>
+            </div>
+          </article>
+
+          <!-- Software 4 -->
+          <article class="software-card group bg-gray-900 rounded-2xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-blue-400/20">
+            <div class="flex items-start mb-6">
+              <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+                <i class="fas fa-pencil-ruler text-2xl text-blue-400"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                  <span class="text-gray-500 text-sm">جيد</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-3">Adobe XD</h3>
+            <p class="text-gray-400 mb-5 leading-relaxed">
+              برنامج تصميم تجارب المستخدم والنماذج التفاعلية
+            </p>
+
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-4">
+              <div class="bg-blue-500 h-2.5 rounded-full" style="width: 75%"></div>
+            </div>
+          </article>
+
+          <!-- Software 5 -->
+          <article class="software-card group bg-gray-900 rounded-2xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-blue-400/20">
+            <div class="flex items-start mb-6">
+              <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+                <i class="fas fa-book text-2xl text-blue-400"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                  <span class="text-gray-500 text-sm">متقدم</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-3">InDesign</h3>
+            <p class="text-gray-400 mb-5 leading-relaxed">
+              برنامج النشر المكتبي والتصميم الطباعي
+            </p>
+
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mb-4">
+              <div class="bg-blue-500 h-2.5 rounded-full" style="width: 85%"></div>
+            </div>
+          </article>
         </div>
-        
-        <div class="skill-item">
-            <div class="icon icon-illustrator"><img src="img/icons8-adobe-illustrator-100.png" alt="Illustrator"></div>
-            <p>Illustrator<br><span>(محترف)</span></p>
+      </div>
+    </section>
+    <!-- END Software Section -->
+
+    <!-- START My Works Section -->
+    <section id="works" class="py-20 bg-black/20" data-aos="fade-up" aria-labelledby="works-heading">
+      <div class="container mx-auto px-4">
+        <header class="text-center mb-16">
+          <h2 id="works-heading" class="text-4xl font-bold text-blue-400 mb-4">أعمالي</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">مجموعة من الأعمال والإبداعات في مجالات التصميم المختلفة</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Work 1 -->
+          <article class="work-card group bg-gray-900 rounded-2xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-blue-400/20">
+            <div class="work-image mb-6 h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+              <i class="fas fa-palette text-6xl text-white opacity-70"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">لوحاتي</h3>
+            <p class="text-gray-400 mb-5 leading-relaxed">
+              مجموعة من اللوحات الفنية والتصاميم الإبداعية التي قمت بتنفيذها باستخدام مختلف التقنيات
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-badge">Digital Art</span>
+              <span class="tech-badge">Illustration</span>
+              <span class="tech-badge">Painting</span>
+            </div>
+          </article>
+
+          <!-- Work 2 -->
+          <article class="work-card group bg-gray-900 rounded-2xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-blue-400/20">
+            <div class="work-image mb-6 h-48 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center">
+              <i class="fas fa-pen-nib text-6xl text-white opacity-70"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">شعارات</h3>
+            <p class="text-gray-400 mb-5 leading-relaxed">
+              تصميم شعارات مبتكرة للعلامات التجارية المختلفة مع الحفاظ على الهوية البصرية المميزة
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-badge">Logo Design</span>
+              <span class="tech-badge">Branding</span>
+              <span class="tech-badge">Identity</span>
+            </div>
+          </article>
+
+          <!-- Work 3 -->
+          <article class="work-card group bg-gray-900 rounded-2xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-blue-400/20">
+            <div class="work-image mb-6 h-48 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl flex items-center justify-center">
+              <i class="fas fa-mouse-pointer text-6xl text-white opacity-70"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">رسم رقمي</h3>
+            <p class="text-gray-400 mb-5 leading-relaxed">
+              أعمال الرسم الرقمي باستخدام الأدوات والتقنيات الحديثة في التصميم الجرافيكي
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-badge">Digital Painting</span>
+              <span class="tech-badge">Vector Art</span>
+              <span class="tech-badge">Graphic Design</span>
+            </div>
+          </article>
         </div>
-        
-        <div class="skill-item">
-            <div class="icon icon-figma"><img src="img/icons8-figma-100.png" alt="Figma"></div>
-            <p>Figma<br><span>(جيد)</span></p>
+      </div>
+    </section>
+    <!-- END My Works Section -->
+  </main>
+
+  <!-- Programming Languages Modal -->
+  <div id="programmingModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+    <div class="bg-gray-800 rounded-2xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl font-bold text-blue-400">لغات البرمجة</h2>
+        <button id="closeProgrammingModal" class="text-gray-400 hover:text-white text-2xl">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Language 1 -->
+        <article class="language-card bg-gray-900 rounded-2xl p-6 border border-gray-800">
+          <div class="flex items-start mb-4">
+            <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+              <i class="fab fa-html5 text-2xl text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                <span class="text-gray-500 text-sm">مبتدئ</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">HTML & CSS</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">
+            لغات بناء وتصميم صفحات الويب
+          </p>
+
+          <div class="w-full bg-gray-700 rounded-full h-2.5">
+            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 70%"></div>
+          </div>
+        </article>
+
+        <!-- Language 2 -->
+        <article class="language-card bg-gray-900 rounded-2xl p-6 border border-gray-800">
+          <div class="flex items-start mb-4">
+            <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+              <i class="fab fa-js text-2xl text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                <span class="text-gray-500 text-sm">جيد</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">JavaScript</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">
+            لغة برمجة لتطوير تطبيقات الويب التفاعلية
+          </p>
+
+          <div class="w-full bg-gray-700 rounded-full h-2.5">
+            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 80%"></div>
+          </div>
+        </article>
+
+        <!-- Language 3 -->
+        <article class="language-card bg-gray-900 rounded-2xl p-6 border border-gray-800">
+          <div class="flex items-start mb-4">
+            <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+              <i class="fab fa-python text-2xl text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                <span class="text-gray-500 text-sm">مبتدئ</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">Python</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">
+            لغة برمجة متعددة الاستخدامات وسهلة التعلم
+          </p>
+
+          <div class="w-full bg-gray-700 rounded-full h-2.5">
+            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 60%"></div>
+          </div>
+        </article>
+
+        <!-- Language 4 -->
+        <article class="language-card bg-gray-900 rounded-2xl p-6 border border-gray-800">
+          <div class="flex items-start mb-4">
+            <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+              <i class="fab fa-java text-2xl text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                <span class="text-gray-500 text-sm">جيد</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">Java</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">
+            لغة برمجة قوية لتطوير التطبيقات المختلفة
+          </p>
+
+          <div class="w-full bg-gray-700 rounded-full h-2.5">
+            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 75%"></div>
+          </div>
+        </article>
+
+        <!-- Language 5 -->
+        <article class="language-card bg-gray-900 rounded-2xl p-6 border border-gray-800">
+          <div class="flex items-start mb-4">
+            <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+              <i class="fas fa-code text-2xl text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                <span class="text-gray-500 text-sm">جيد</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">Dart</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">
+            لغة برمجة لتطوير تطبيقات Flutter
+          </p>
+
+          <div class="w-full bg-gray-700 rounded-full h-2.5">
+            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 70%"></div>
+          </div>
+        </article>
+
+        <!-- Language 6 -->
+        <article class="language-card bg-gray-900 rounded-2xl p-6 border border-gray-800">
+          <div class="flex items-start mb-4">
+            <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mr-4">
+              <i class="fas fa-cogs text-2xl text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-gray-500 text-sm">محترف</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold mb-3">C++</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">
+            لغة برمجة قوية لتطوير البرمجيات المعقدة
+          </p>
+
+          <div class="w-full bg-gray-700 rounded-full h-2.5">
+            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 90%"></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+<!-- Contact Modal -->
+<div id="contactModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+  <div class="bg-gray-800 rounded-2xl p-8 max-w-2xl w-full mx-4">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-bold text-blue-400">وسائل التواصل</h2>
+      <button id="closeContactModal" class="text-gray-400 hover:text-white text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="space-y-6">
+      <h3 class="text-2xl font-bold text-blue-300 text-center mb-8">تواصل معي عبر</h3>
+
+      <!-- Phone -->
+      <div class="contact-item group bg-gray-900/50 rounded-xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
+            <i class="fas fa-phone text-green-400 text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-400 text-sm mb-1">رقم الهاتف</p>
+            <p class="text-blue-300 font-medium text-lg">07822457876</p>
+          </div>
+          <button onclick="copyToClipboard('07822457876')" class="copy-btn opacity-0 group-hover:opacity-100 transition-opacity">
+            <i class="fas fa-copy text-gray-400 hover:text-blue-400"></i>
+          </button>
         </div>
-        
-        <div class="skill-item">
-            <div class="icon icon-xd"><img src="img/icons8-adobe-xd-100.png" alt="Adobe XD"></div>
-            <p>Adobe XD<br><span>(جيد)</span></p>
+      </div>
+
+      <!-- Email -->
+      <div class="contact-item group bg-gray-900/50 rounded-xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center group-hover:bg-red-500/30 transition-colors">
+            <i class="fas fa-envelope text-red-400 text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-400 text-sm mb-1">البريد الإلكتروني</p>
+            <p class="text-blue-300 font-medium text-lg">rdrop7716@gmail.com</p>
+          </div>
+          <button onclick="copyToClipboard('rdrop7716@gmail.com')" class="copy-btn opacity-0 group-hover:opacity-100 transition-opacity">
+            <i class="fas fa-copy text-gray-400 hover:text-blue-400"></i>
+          </button>
         </div>
-        
-        <div class="skill-item">
-            <div class="icon icon-indesign"><img src="img/icons8-adobe-indesign-100.png" alt="InDesign"></div>
-            <p>InDesign<br><span>(متقدم)</span></p>
+      </div>
+
+      <!-- Instagram -->
+      <div class="contact-item group bg-gray-900/50 rounded-xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 bg-pink-500/20 rounded-full flex items-center justify-center group-hover:bg-pink-500/30 transition-colors">
+            <i class="fab fa-instagram text-pink-400 text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-400 text-sm mb-1">حساب الإنستغرام</p>
+            <a href="https://www.instagram.com/saifalkaeby?igsh=NG1uN2gwMHdya2k5" target="_blank"
+               class="text-blue-300 font-medium text-lg hover:text-blue-200 transition-colors flex items-center gap-2">
+              @saifalkaeby
+              <i class="fas fa-external-link-alt text-xs text-gray-500"></i>
+            </a>
+          </div>
+          <button onclick="copyToClipboard('@saifalkaeby')" class="copy-btn opacity-0 group-hover:opacity-100 transition-opacity">
+            <i class="fas fa-copy text-gray-400 hover:text-blue-400"></i>
+          </button>
         </div>
-        
+      </div>
+
+      <!-- Telegram -->
+      <div class="contact-item group bg-gray-900/50 rounded-xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
+            <i class="fab fa-telegram text-blue-400 text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-gray-400 text-sm mb-1">حساب التليجرام</p>
+            <p class="text-blue-300 font-medium text-lg">@saifalkaeby</p>
+          </div>
+          <button onclick="copyToClipboard('@saifalkaeby')" class="copy-btn opacity-0 group-hover:opacity-100 transition-opacity">
+            <i class="fas fa-copy text-gray-400 hover:text-blue-400"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Social Media Links -->
+
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer class="bg-black/50 backdrop-blur-md py-8" data-aos="fade-up" data-aos-duration="1000">
+    <div class="flex justify-center space-x-8 mb-4">
 
     </div>
-</section>
-<section id="programming" class="skills-section dark-bg">
-    <h2>لغات البرمجة</h2>
-    <div class="skills-grid">
-        <div class="skill-item">
-            <div class="icon icon-html-css"><img src="img/icons8-html-96.png " alt="HTML & CSS"></div>
-            <p>HTML & CSS<br><span>(مبتدئ)</span></p>
-        </div>
-        
-        <div class="skill-item">
-            <div class="icon icon-javascript"><img src="img/icons8-javascript-96.png" alt="JavaScript"></div>
-            <p>JavaScript<br><span>(جيد)</span></p>
-        </div>
-        
-        <div class="skill-item">
-            <div class="icon icon-python"><img src="img/icons8-python-100.png" alt="Python"></div>
-            <p>Python<br><span>(مبتدئ)</span></p>
-        </div>
-        
-        <div class="skill-item">
-            <div class="icon icon-java"><img src="img/icons8-java-100.png" alt="Java"></div>
-            <p>Java<br><span>(جيد)</span></p>
-        </div>
-        
-        <div class="skill-item">
-            <div class="icon icon-dart"><img src="img/icons8-dart-100.png" alt="Dart"></div>
-            <p>Dart<br><span>(جيد)</span></p>
-        </div>
-        
-        <div class="skill-item">
-            <div class="icon icon-cpp"><img src="img/icons8-c-96.png" alt="C++"></div>
-            <p>C++<br><span>(محترف)</span></p>
-        </div>
-        
-        <!-- العنصر الإضافي لتوسيط الصف الأخير -->
-        <div class="skill-item empty-item"></div>
+    <div class="text-center text-gray-500 text-sm">
+      <span>© 2025 سيف. جميع الحقوق محفوظة.</span> <br>
+      مهندس ومصمم شغوف
     </div>
-</section>
+  </footer>
 
-<section id="portfolio" class="skills-section">
-    <h2>أعمالي</h2>
-    <div class="skills-grid portfolio-grid">
-        <a href="#art" class="skill-item">
-            <div class="icon"><img src="images/art.png" alt="لوحاتي"></div>
-            <p>لوحاتي</p>
-        </a>
-        
-        <a href="#logos" class="skill-item">
-            <div class="icon"><img src="images/logo.png" alt="شعارات"></div>
-            <p>شعارات</p>
-        </a>
-        
-        <a href="#digital" class="skill-item">
-            <div class="icon"><img src="images/digital_art.png" alt="رسم رقمي"></div>
-            <p>رسم رقمي</p>
-        </a>
-        
-        <a href="#social" class="skill-item">
-            <div class="icon"><img src="images/social_design.png" alt="تصاميم سوشيال ميديا"></div>
-            <p>تصاميم سوشيال ميديا</p>
-        </a>
-    </div>
-</section>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-<footer class="footer">
-    <p>© 2025 سيف. جميع الحقوق محفوظة.</p>
-</footer>
-
-<script>
-// إضافة تأثيرات تفاعلية إضافية
-document.addEventListener('DOMContentLoaded', function() {
-  // تأثيرات للعناصر عند التمرير
-  const skillItems = document.querySelectorAll('.skill-item');
-  
-  const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -50px 0px'
-  };
-  
-  const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({duration: 1000});
+      initTypedJS();
+      setupEventListeners();
     });
-  }, observerOptions);
-  
-  skillItems.forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(20px)';
-    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(item);
-  });
-  
-  // إضافة تأثيرات للرأس عند التمرير
-  const header = document.querySelector('.header');
-  let lastScrollY = window.scrollY;
-  
-  window.addEventListener('scroll', () => {
-    if (lastScrollY < window.scrollY) {
-      header.style.transform = 'translateY(-100%)';
-    } else {
-      header.style.transform = 'translateY(0)';
+
+    let typedInstance = null;
+
+    function initTypedJS() {
+      if (typedInstance) {
+        typedInstance.destroy();
+      }
+
+      const strings = [
+        'مرحباً بك في بورتفوليـو سيف',
+        'اكتشف مهاراتي وأعمالي في التصميم والبرمجة والتدريب'
+      ];
+
+      typedInstance = new Typed('#typedText', {
+        strings: strings,
+        typeSpeed: 40,
+        backSpeed: 25,
+        loop: true,
+        cursorChar: '|',
+        smartBackspace: true,
+        startDelay: 500,
+        backDelay: 3000,
+        showCursor: true,
+        contentType: 'html'
+      });
     }
-    
-    lastScrollY = window.scrollY;
-  });
-});
-</script>
 
+    function setupEventListeners() {
+      // Programming Modal
+      const programmingBtn = document.getElementById('programmingBtn');
+      const programmingModal = document.getElementById('programmingModal');
+      const closeProgrammingModal = document.getElementById('closeProgrammingModal');
+
+      programmingBtn.addEventListener('click', () => {
+        programmingModal.classList.remove('hidden');
+      });
+
+      closeProgrammingModal.addEventListener('click', () => {
+        programmingModal.classList.add('hidden');
+      });
+
+      // Contact Modal
+      const contactBtn = document.getElementById('contactBtn');
+      const contactBtnMain = document.getElementById('contactBtnMain');
+      const contactModal = document.getElementById('contactModal');
+      const closeContactModal = document.getElementById('closeContactModal');
+
+      contactBtn.addEventListener('click', () => {
+        contactModal.classList.remove('hidden');
+      });
+
+      contactBtnMain.addEventListener('click', () => {
+        contactModal.classList.remove('hidden');
+      });
+
+      closeContactModal.addEventListener('click', () => {
+        contactModal.classList.add('hidden');
+      });
+
+      // Close modals when clicking outside
+      window.addEventListener('click', (event) => {
+        if (event.target === programmingModal) {
+          programmingModal.classList.add('hidden');
+        }
+        if (event.target === contactModal) {
+          contactModal.classList.add('hidden');
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+          e.preventDefault();
+          document.querySelector(anchor.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    }
+  </script>
+
+  <style>
+    .glow-text {
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+
+    .animated-orb {
+      width: 8rem;
+      height: 8rem;
+      background-color: rgba(59, 130, 246, 0.3);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 3s infinite;
+    }
+
+    .software-card, .language-card, .work-card {
+      background-color: rgba(31, 41, 55, 1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .software-card:hover, .language-card:hover, .work-card:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-btn {
+      background-color: rgb(59, 130, 246);
+      color: black;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      border: none;
+      cursor: pointer;
+    }
+
+    .contact-btn:hover {
+      background-color: rgb(37, 99, 235);
+    }
+
+    .tech-badge {
+      background-color: rgba(59, 130, 246, 0.2);
+      color: rgb(96, 165, 250);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+    }
+
+    .nav-link {
+      color: rgb(96, 165, 250);
+      transition: color 0.3s;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      color: rgb(147, 197, 253);
+    }
+
+    .social-icon {
+      color: rgb(156, 163, 175);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .social-icon:hover {
+      color: rgb(96, 165, 250);
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.2); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+  </style>
 </body>
-
 </html>
