@@ -8,8 +8,8 @@
 }
 
 .animated-orb {
-  width: 8rem;
-  height: 8rem;
+  width: 5rem;
+  height: 5rem;
   background-color: rgba(59, 130, 246, 0.3);
   border-radius: 50%;
   position: absolute;
@@ -17,6 +17,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   animation: pulse 3s infinite;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .animated-orb {
+    width: 8rem;
+    height: 8rem;
+  }
 }
 
 .software-card, .language-card, .work-card {

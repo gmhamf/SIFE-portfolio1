@@ -16,27 +16,45 @@
 
 <body class="dark:bg-gradient-to-b dark:from-black dark:via-gray-900 dark:to-black min-h-screen flex flex-col text-blue-400 font-sans transition-colors duration-300">
 
-    <header class="flex justify-between items-center p-6 bg-black/50 backdrop-blur-md">
-        <nav class="flex items-center space-x-6">
-          <a href="#home" class="nav-link">الرئيسية</a>
-          <a href="#software" class="nav-link">البرامج</a>
-          <a href="#works" class="nav-link">أعمالي</a>
-          <button id="programmingBtn" class="nav-link">لغات البرمجة</button>
-          <button id="contactBtn" class="nav-link">راسلني</button>
-        </nav>
+    <header class="p-6 bg-black/50 backdrop-blur-md sticky top-0 z-40">
+        <div class="container mx-auto flex justify-between items-center">
+          <a href="#home" class="text-xl font-bold text-blue-400 hover:text-blue-300 transition-colors">سيف</a>
+          <!-- Desktop navigation -->
+          <nav class="hidden md:flex items-center space-x-6 space-x-reverse">
+            <a href="#home" class="nav-link py-2 px-3 inline-flex items-center min-h-[44px]">الرئيسية</a>
+            <a href="#software" class="nav-link py-2 px-3 inline-flex items-center min-h-[44px]">البرامج</a>
+            <a href="#works" class="nav-link py-2 px-3 inline-flex items-center min-h-[44px]">أعمالي</a>
+            <button id="programmingBtn" class="nav-link py-2 px-3 inline-flex items-center min-h-[44px]">لغات البرمجة</button>
+            <button id="contactBtn" class="nav-link py-2 px-3 inline-flex items-center min-h-[44px]">راسلني</button>
+          </nav>
+          <!-- Mobile menu button -->
+          <button id="mobileMenuBtn" class="md:hidden flex items-center justify-center w-11 h-11 text-blue-400 hover:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-lg text-2xl" aria-label="القائمة" aria-expanded="false">
+            <i id="mobileMenuIcon" class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- Mobile dropdown menu -->
+        <div id="mobileMenu" class="hidden md:hidden pt-4 pb-2 border-t border-gray-800 mt-4 flex flex-col space-y-2">
+          <a href="#home" class="nav-link py-3 px-4 rounded-lg hover:bg-gray-800/60 flex items-center min-h-[44px]">الرئيسية</a>
+          <a href="#software" class="nav-link py-3 px-4 rounded-lg hover:bg-gray-800/60 flex items-center min-h-[44px]">البرامج</a>
+          <a href="#works" class="nav-link py-3 px-4 rounded-lg hover:bg-gray-800/60 flex items-center min-h-[44px]">أعمالي</a>
+          <button id="programmingBtnMobile" class="nav-link text-right py-3 px-4 rounded-lg hover:bg-gray-800/60 flex items-center min-h-[44px] w-full">لغات البرمجة</button>
+          <button id="contactBtnMobile" class="nav-link text-right py-3 px-4 rounded-lg hover:bg-gray-800/60 flex items-center min-h-[44px] w-full">راسلني</button>
+        </div>
       </header>
 
   <main class="flex-grow container mx-auto px-4 py-12">
 
-    <section id="home" class="text-center mb-24" data-aos="zoom-in">
-      <h1 class="text-6xl font-bold mb-6 glow-text">
-        سيف
-      </h1>
-      <div class="animated-orb"></div>
+    <section id="home" class="text-center mb-24 relative" data-aos="zoom-in">
+      <div class="relative inline-block my-2">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold glow-text relative z-10">
+          سيف
+        </h1>
+        <div class="animated-orb"></div>
+      </div>
 
-      <h2 class="text-2xl text-gray-300 my-4">مهندس ومصمم شغوف</h2>
+      <h2 class="text-xl sm:text-2xl text-gray-300 my-4">مهندس ومصمم شغوف</h2>
 
-      <div id="typedText" class="text-2xl text-gray-300 my-8 h-16"></div>
+      <div id="typedText" class="text-xl sm:text-2xl text-gray-300 my-6 sm:my-8 min-h-[4.5rem] flex items-center justify-center"></div>
 
       <div class="max-w-3xl mx-auto text-lg text-gray-400">
         <p class="mb-4">
@@ -254,11 +272,11 @@
   </main>
 
   <!-- Programming Languages Modal -->
-  <div id="programmingModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
-    <div class="bg-gray-800 rounded-2xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-      <div class="flex justify-between items-center mb-8">
-        <h2 class="text-3xl font-bold text-blue-400">لغات البرمجة</h2>
-        <button id="closeProgrammingModal" class="text-gray-400 hover:text-white text-2xl">
+  <div id="programmingModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden p-4">
+    <div class="bg-gray-800 rounded-2xl p-4 sm:p-8 max-w-4xl w-full max-h-[85vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-400">لغات البرمجة</h2>
+        <button id="closeProgrammingModal" class="text-gray-400 hover:text-white text-2xl w-11 h-11 flex items-center justify-center rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" aria-label="إغلاق">
           <i class="fas fa-times"></i>
         </button>
       </div>
@@ -410,94 +428,90 @@
       </div>
     </div>
   </div>
-<!-- Contact Modal -->
-<div id="contactModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
-  <div class="bg-gray-800 rounded-2xl p-8 max-w-2xl w-full mx-4">
-    <div class="flex justify-between items-center mb-8">
-      <h2 class="text-3xl font-bold text-blue-400">وسائل التواصل</h2>
-      <button id="closeContactModal" class="text-gray-400 hover:text-white text-2xl">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
 
-    <div class="space-y-6">
-      <h3 class="text-2xl font-bold text-blue-300 text-center mb-8">تواصل معي عبر</h3>
-
-      <!-- Phone -->
-      <div class="contact-item group bg-gray-900/50 rounded-xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
-        <div class="flex items-center gap-4">
-          <div class="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
-            <i class="fas fa-phone text-green-400 text-xl"></i>
-          </div>
-          <div class="flex-1">
-            <p class="text-gray-400 text-sm mb-1">رقم الهاتف</p>
-            <p class="text-blue-300 font-medium text-lg">07822457876</p>
-          </div>
-          <button onclick="copyToClipboard('07822457876')" class="copy-btn opacity-0 group-hover:opacity-100 transition-opacity">
-            <i class="fas fa-copy text-gray-400 hover:text-blue-400"></i>
-          </button>
-        </div>
+  <!-- Contact Modal -->
+  <div id="contactModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden p-4">
+    <div class="bg-gray-800 rounded-2xl p-4 sm:p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-400">وسائل التواصل</h2>
+        <button id="closeContactModal" class="text-gray-400 hover:text-white text-2xl w-11 h-11 flex items-center justify-center rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" aria-label="إغلاق">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
 
-      <!-- Email -->
-      <div class="contact-item group bg-gray-900/50 rounded-xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
-        <div class="flex items-center gap-4">
-          <div class="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center group-hover:bg-red-500/30 transition-colors">
-            <i class="fas fa-envelope text-red-400 text-xl"></i>
+      <div class="space-y-4 sm:space-y-6">
+        <h3 class="text-xl sm:text-2xl font-bold text-blue-300 text-center mb-6">تواصل معي عبر</h3>
+
+        <!-- Phone -->
+        <div class="contact-item group bg-gray-900/50 rounded-xl p-4 sm:p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
+          <div class="flex items-center gap-3 sm:gap-4">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-green-500/20 rounded-full flex items-center justify-center group-hover:bg-green-500/30 transition-colors flex-shrink-0">
+              <i class="fas fa-phone text-green-400 text-lg sm:text-xl"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-gray-400 text-xs sm:text-sm mb-1">رقم الهاتف</p>
+              <p class="text-blue-300 font-medium text-base sm:text-lg truncate">07822457876</p>
+            </div>
+            <button onclick="copyToClipboard('07822457876')" class="copy-btn w-11 h-11 flex items-center justify-center rounded-lg text-gray-400 hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" aria-label="نسخ رقم الهاتف">
+              <i class="fas fa-copy"></i>
+            </button>
           </div>
-          <div class="flex-1">
-            <p class="text-gray-400 text-sm mb-1">البريد الإلكتروني</p>
-            <p class="text-blue-300 font-medium text-lg">rdrop7716@gmail.com</p>
-          </div>
-          <button onclick="copyToClipboard('rdrop7716@gmail.com')" class="copy-btn opacity-0 group-hover:opacity-100 transition-opacity">
-            <i class="fas fa-copy text-gray-400 hover:text-blue-400"></i>
-          </button>
         </div>
-      </div>
 
-      <!-- Instagram -->
-      <div class="contact-item group bg-gray-900/50 rounded-xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
-        <div class="flex items-center gap-4">
-          <div class="w-14 h-14 bg-pink-500/20 rounded-full flex items-center justify-center group-hover:bg-pink-500/30 transition-colors">
-            <i class="fab fa-instagram text-pink-400 text-xl"></i>
+        <!-- Email -->
+        <div class="contact-item group bg-gray-900/50 rounded-xl p-4 sm:p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
+          <div class="flex items-center gap-3 sm:gap-4">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-500/20 rounded-full flex items-center justify-center group-hover:bg-red-500/30 transition-colors flex-shrink-0">
+              <i class="fas fa-envelope text-red-400 text-lg sm:text-xl"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-gray-400 text-xs sm:text-sm mb-1">البريد الإلكتروني</p>
+              <p class="text-blue-300 font-medium text-base sm:text-lg truncate">rdrop7716@gmail.com</p>
+            </div>
+            <button onclick="copyToClipboard('rdrop7716@gmail.com')" class="copy-btn w-11 h-11 flex items-center justify-center rounded-lg text-gray-400 hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" aria-label="نسخ البريد الإلكتروني">
+              <i class="fas fa-copy"></i>
+            </button>
           </div>
-          <div class="flex-1">
-            <p class="text-gray-400 text-sm mb-1">حساب الإنستغرام</p>
-            <a href="https://www.instagram.com/saifalkaeby?igsh=NG1uN2gwMHdya2k5" target="_blank"
-               class="text-blue-300 font-medium text-lg hover:text-blue-200 transition-colors flex items-center gap-2">
-              @saifalkaeby
-              <i class="fas fa-external-link-alt text-xs text-gray-500"></i>
-            </a>
-          </div>
-          <button onclick="copyToClipboard('@saifalkaeby')" class="copy-btn opacity-0 group-hover:opacity-100 transition-opacity">
-            <i class="fas fa-copy text-gray-400 hover:text-blue-400"></i>
-          </button>
         </div>
-      </div>
 
-      <!-- Telegram -->
-      <div class="contact-item group bg-gray-900/50 rounded-xl p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
-        <div class="flex items-center gap-4">
-          <div class="w-14 h-14 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
-            <i class="fab fa-telegram text-blue-400 text-xl"></i>
+        <!-- Instagram -->
+        <div class="contact-item group bg-gray-900/50 rounded-xl p-4 sm:p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
+          <div class="flex items-center gap-3 sm:gap-4">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-pink-500/20 rounded-full flex items-center justify-center group-hover:bg-pink-500/30 transition-colors flex-shrink-0">
+              <i class="fab fa-instagram text-pink-400 text-lg sm:text-xl"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-gray-400 text-xs sm:text-sm mb-1">حساب الإنستغرام</p>
+              <a href="https://www.instagram.com/saifalkaeby?igsh=NG1uN2gwMHdya2k5" target="_blank"
+                 class="text-blue-300 font-medium text-base sm:text-lg hover:text-blue-200 transition-colors inline-flex items-center gap-2 truncate">
+                <span>@saifalkaeby</span>
+                <i class="fas fa-external-link-alt text-xs text-gray-500"></i>
+              </a>
+            </div>
+            <button onclick="copyToClipboard('@saifalkaeby')" class="copy-btn w-11 h-11 flex items-center justify-center rounded-lg text-gray-400 hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" aria-label="نسخ حساب الإنستغرام">
+              <i class="fas fa-copy"></i>
+            </button>
           </div>
-          <div class="flex-1">
-            <p class="text-gray-400 text-sm mb-1">حساب التليجرام</p>
-            <p class="text-blue-300 font-medium text-lg">@saifalkaeby</p>
-          </div>
-          <button onclick="copyToClipboard('@saifalkaeby')" class="copy-btn opacity-0 group-hover:opacity-100 transition-opacity">
-            <i class="fas fa-copy text-gray-400 hover:text-blue-400"></i>
-          </button>
         </div>
-      </div>
 
-      <!-- Social Media Links -->
-
-        </a>
+        <!-- Telegram -->
+        <div class="contact-item group bg-gray-900/50 rounded-xl p-4 sm:p-6 hover:bg-gray-800 transition-all duration-300 border border-gray-700 hover:border-blue-400/30">
+          <div class="flex items-center gap-3 sm:gap-4">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:bg-blue-500/30 transition-colors flex-shrink-0">
+              <i class="fab fa-telegram text-blue-400 text-lg sm:text-xl"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-gray-400 text-xs sm:text-sm mb-1">حساب التليجرام</p>
+              <p class="text-blue-300 font-medium text-base sm:text-lg truncate">@saifalkaeby</p>
+            </div>
+            <button onclick="copyToClipboard('@saifalkaeby')" class="copy-btn w-11 h-11 flex items-center justify-center rounded-lg text-gray-400 hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" aria-label="نسخ حساب التليجرام">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <footer class="bg-black/50 backdrop-blur-md py-8" data-aos="fade-up" data-aos-duration="1000">
     <div class="flex justify-center space-x-8 mb-4">
@@ -546,56 +560,140 @@
     }
 
     function setupEventListeners() {
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isExpanded = mobileMenu.classList.toggle('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+          if (mobileMenuIcon) {
+            mobileMenuIcon.className = isExpanded ? 'fas fa-bars' : 'fas fa-times';
+          }
+        });
+
+        // Close mobile menu when clicking navigation links
+        mobileMenu.querySelectorAll('a, button').forEach(item => {
+          item.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            if (mobileMenuIcon) {
+              mobileMenuIcon.className = 'fas fa-bars';
+            }
+          });
+        });
+      }
+
       // Programming Modal
       const programmingBtn = document.getElementById('programmingBtn');
+      const programmingBtnMobile = document.getElementById('programmingBtnMobile');
       const programmingModal = document.getElementById('programmingModal');
       const closeProgrammingModal = document.getElementById('closeProgrammingModal');
 
-      programmingBtn.addEventListener('click', () => {
+      const openProgramming = () => {
         programmingModal.classList.remove('hidden');
-      });
-
-      closeProgrammingModal.addEventListener('click', () => {
+        document.body.style.overflow = 'hidden';
+      };
+      const closeProgramming = () => {
         programmingModal.classList.add('hidden');
-      });
+        document.body.style.overflow = '';
+      };
+
+      if (programmingBtn) programmingBtn.addEventListener('click', openProgramming);
+      if (programmingBtnMobile) programmingBtnMobile.addEventListener('click', openProgramming);
+      if (closeProgrammingModal) closeProgrammingModal.addEventListener('click', closeProgramming);
 
       // Contact Modal
       const contactBtn = document.getElementById('contactBtn');
+      const contactBtnMobile = document.getElementById('contactBtnMobile');
       const contactBtnMain = document.getElementById('contactBtnMain');
       const contactModal = document.getElementById('contactModal');
       const closeContactModal = document.getElementById('closeContactModal');
 
-      contactBtn.addEventListener('click', () => {
+      const openContact = () => {
         contactModal.classList.remove('hidden');
-      });
-
-      contactBtnMain.addEventListener('click', () => {
-        contactModal.classList.remove('hidden');
-      });
-
-      closeContactModal.addEventListener('click', () => {
+        document.body.style.overflow = 'hidden';
+      };
+      const closeContact = () => {
         contactModal.classList.add('hidden');
-      });
+        document.body.style.overflow = '';
+      };
+
+      if (contactBtn) contactBtn.addEventListener('click', openContact);
+      if (contactBtnMobile) contactBtnMobile.addEventListener('click', openContact);
+      if (contactBtnMain) contactBtnMain.addEventListener('click', openContact);
+      if (closeContactModal) closeContactModal.addEventListener('click', closeContact);
 
       // Close modals when clicking outside
       window.addEventListener('click', (event) => {
         if (event.target === programmingModal) {
-          programmingModal.classList.add('hidden');
+          closeProgramming();
         }
         if (event.target === contactModal) {
-          contactModal.classList.add('hidden');
+          closeContact();
+        }
+      });
+
+      // Close modals on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (!programmingModal.classList.contains('hidden')) closeProgramming();
+          if (!contactModal.classList.contains('hidden')) closeContact();
         }
       });
 
       // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', e => {
-          e.preventDefault();
-          document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
         });
       });
+    }
+
+    // نسخ إلى الحافظة
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showCopyFeedback();
+        }).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showCopyFeedback();
+      } catch (err) {
+        console.error('Copy failed', err);
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showCopyFeedback() {
+      const feedback = document.createElement('div');
+      feedback.textContent = 'تم النسخ بنجاح!';
+      feedback.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg z-50 text-sm font-semibold transition-opacity';
+      document.body.appendChild(feedback);
+      setTimeout(() => {
+        feedback.style.opacity = '0';
+        setTimeout(() => feedback.remove(), 300);
+      }, 2000);
     }
   </script>
   <script src="script.js" defer></script>
