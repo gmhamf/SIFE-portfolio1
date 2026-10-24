@@ -1,9 +1,1 @@
-// تفاعلات خفيفة
-document.querySelectorAll('.skill-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        item.style.transform = "translateY(-15px) scale(1.05)";
-    });
-    item.addEventListener('mouseleave', () => {
-        item.style.transform = "translateY(0) scale(1)";
-    });
-});
+document.querySelectorAll(".skill-item").forEach(e=>{e.addEventListener("mouseenter",()=>{e.style.transform="translateY(-15px) scale(1.05)"}),e.addEventListener("mouseleave",()=>{e.style.transform="translateY(0) scale(1)"})});
