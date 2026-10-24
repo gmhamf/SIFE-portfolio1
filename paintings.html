@@ -76,7 +76,7 @@
         <div class="modal-content relative max-w-4xl w-full">
             <button id="closeModal" class="absolute -top-12 right-0 text-white text-4xl hover:text-gray-300 z-50 transition-colors">&times;</button>
             <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
-                <img id="modalImage" src="" alt="صورة مكبرة" class="w-full max-h-[70vh] object-contain">
+                <img id="modalImage" src="" alt="صورة مكبرة" class="w-full max-h-[70vh] object-contain" width="800" height="600">
                 <div class="p-6 bg-gradient-to-t from-gray-900 to-gray-800">
                     <h3 id="modalTitle" class="text-xl font-bold text-white mb-2">عنوان اللوحة</h3>
                     <p id="modalDesc" class="text-gray-300">وصف اللوحة</p>
@@ -91,77 +91,77 @@
             const galleryData = [
                 {
                     id: 1,
-                    src: "pinter/Frame 2.png",
-                  title: "حسين منتصر",
+                    src: "pinter/Frame 2.webp",
+                    title: "حسين منتصر",
                     desc: "حسين منتصر - صديق مخلص ورفيق درب، يتمتع بروح مرحة وقلب طيب.",
                     category: "art"
                 },
                 {
                     id: 2,
-                    src: "pinter/محمد صادق 1.png",
+                    src: "pinter/محمد صادق 1.webp",
                     title: "محمد صادق",
                     desc: "محمد صادق - مبرمج هذا الموقع وصديق مبدع في مجال التكنولوجيا والبرمجة.",
                     category: "art"
                 },
                 {
                     id: 3,
-                    src: "pinter/الحمد لله.png",
+                    src: "pinter/الحمد لله.webp",
                     title: "الحمد لله",
                     desc: "لوحة خط عربي تجمع بين جمال الخط العربي والتقنيات الفنية المعاصرة، تعبر عن الشكر والامتنان.",
                     category: "islamic"
                 },
                 {
                     id: 4,
-                    src: "pinter/ايتاشي  1.png",
+                    src: "pinter/ايتاشي  1.webp",
                     title: "ايتاشي",
                     desc: "رسم لشخصية ايتاشي من أنمي ناروتو، يظهر التفاصيل الدقيقة والتعبير العميق للشخصية.",
                     category: "anime"
                 },
                 {
                     id: 5,
-                    src: "pinter/زورو 1.png",
+                    src: "pinter/زورو 1.webp",
                     title: "زورو",
                     desc: "تصميم لشخصية رورونوا زورو من أنمي ون بيس، يبرز قوته وتصميمه باستخدام السيف.",
                     category: "anime"
                 },
                 {
                     id: 6,
-                    src: "pinter/غراب 1.png",
+                    src: "pinter/غراب 1.webp",
                     title: "الغراب",
                     desc: "لوحة واقعية للغراب، تظهر جمال هذه الطائر الغامض وتفاصيل ريشه الدقيقة.",
                     category: "nature"
                 },
                 {
                     id: 7,
-                    src: "pinter/قاتل الشياطين 1.png",
+                    src: "pinter/قاتل الشياطين 1.webp",
                     title: "قاتل الشياطين",
                     desc: "رسم لشخصية من أنمي Kimetsu no Yaiba (قاتل الشياطين)، يظهر التفاصيل الفنية للأسلحة والملابس التقليدية.",
                     category: "anime"
                 },
                 {
                     id: 8,
-                    src: "pinter/كريستيانو 1.png",
+                    src: "pinter/كريستيانو 1.webp",
                     title: "كريستيانو رونالدو",
                     desc: "بورتريه للاعب كريستيانو رونالدو، يلتقط لحظة من عبقريته الكروية وتفانيه في اللعبة.",
                     category: "sport"
                 },
                 {
                     id: 9,
-                    src: "pinter/ميسي 1.png",
+                    src: "pinter/ميسي 1.webp",
                     title: "ليونيل ميسي",
                     desc: "رسم للاعب ليونيل ميسي، يعكس موهبته الاستثنائية وأسلوبه المميز في كرة القدم.",
                     category: "sport"
                 },
                 {
                     id: 10,
-                    src: "pinter/منظر 1.png",
+                    src: "pinter/منظر 1.webp",
                     title: "منظر طبيعي",
                     desc: "لوحة لمنظر طبيعي خلاب، تجمع بين جمال الطبيعة والألوان الهادئة التي تبعث على الاسترخاء.",
                     category: "nature"
                 },
                 {
                     id: 11,
-                    src: "pinter/منظر 2png.png",
+                    src: "pinter/منظر 2png.webp",
                     title: "منظر خلاب",
                     desc: "رسم لمنظر طبيعي مذهل، يظهر تفاصيل الطبيعة الخلابة بتناغم الألوان والظلال.",
                     category: "nature"
@@ -212,7 +212,7 @@
                         
                         galleryItem.innerHTML = `
                             <div class="overflow-hidden h-64 md:h-80">
-                                <img src="${item.src}" alt="${item.title}" class="zoom-image w-full h-full object-cover" loading="lazy">
+                                <img src="${item.src}" alt="${item.title}" class="zoom-image w-full h-full object-cover" width="400" height="320" loading="lazy">
                             </div>
                             <div class="p-4">
                                 <h3 class="font-semibold text-white mb-2">${item.title}</h3>
