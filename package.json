@@ -1,0 +1,21 @@
+{
+  "name": "sife-portfolio1",
+  "version": "1.0.0",
+  "description": "SIFE-portfolio",
+  "main": "script.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./style.css --minify",
+    "build:js": "esbuild src/script.js --bundle --minify --outfile=script.js",
+    "build": "npm run build:css && npm run build:js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "autoprefixer": "^10.6.1",
+    "esbuild": "^0.28.2",
+    "postcss": "^8.5.31",
+    "tailwindcss": "^3.4.19"
+  }
+}
